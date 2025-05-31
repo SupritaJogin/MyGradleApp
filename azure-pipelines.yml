@@ -1,14 +1,19 @@
 trigger:
-- main
+  - main
 
 pool:
-  name: Default  # or your agent pool name
+  vmImage: 'windows-latest'  # or 'ubuntu-latest'
 
 steps:
-- checkout: self
+  - script: echo Running Gradle build
+    displayName: 'Echo Message'
 
-- script: echo Running Gradle build
-  displayName: 'Echo Message'
+  - script: gradle clean build
+    displayName: 'Build with Gradle'
 
-- script: .\gradlew.bat clean build
-  displayName: 'Build with Gradle'
+  - script: dir build\libs
+    displayName: 'Show JAR Output (Windows)'
+
+  # Optional: Run the JAR
+  # - script: java -jar build\libs\YourJarFile.jar
+  #   displayName: 'Run the App'
