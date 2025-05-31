@@ -2,16 +2,12 @@ trigger:
 - main
 
 pool:
-  name: 'Default'  # Using your working self-hosted agent pool
+  name: Default  # Using your self-hosted agent
 
 steps:
 - script: |
-    echo "Java version:"
-    java -version
-    echo "Javac version:"
-    javac -version
-    echo "Compiling HelloWorld.java..."
+    echo "Compiling Java file..."
     javac HelloWorld.java
-    echo "Running HelloWorld..."
+    echo "Running Java program..."
     java HelloWorld
   displayName: 'Compile and Run Java Program'
