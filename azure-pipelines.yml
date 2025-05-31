@@ -2,12 +2,8 @@ trigger:
 - main
 
 pool:
-  name: Default   # Or use vmImage: 'ubuntu-latest' if Microsoft-hosted
+  name: Default
 
 steps:
-- task: Gradle@2
-  inputs:
-    workingDirectory: ''
-    gradleWrapperFile: ''        # Leave empty to use installed Gradle
-    gradleOptions: '-Xmx1024m'
-    tasks: 'build'
+- script: gradle build
+  displayName: 'Run Gradle Build'
