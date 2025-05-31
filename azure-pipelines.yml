@@ -2,13 +2,13 @@ trigger:
 - main
 
 pool:
-  name: Default   # your self-hosted agent pool name
+  name: Default
 
 steps:
 - checkout: self
 
 - script: dir
-  displayName: 'List repository files'
+  displayName: 'List files in working directory'
 
 - script: echo "Running Gradle build"
   displayName: 'Echo Message'
