@@ -1,19 +1,19 @@
 trigger:
-  - main
+- main  # or your actual branch name
 
 pool:
-  vmImage: 'windows-latest'  # or 'ubuntu-latest'
+  name: 'Azure Pipelines'
+  demands:
+    - agent.name -equals Hosted Agent
 
 steps:
-  - script: echo Running Gradle build
-    displayName: 'Echo Message'
+- task: UseJava@1
+  inputs:
+    versionSpec: '17'
+    jdkArchitecture: 'x64'
 
-  - script: gradle clean build
-    displayName: 'Build with Gradle'
-
-  - script: dir build\libs
-    displayName: 'Show JAR Output (Windows)'
-
-  # Optional: Run the JAR
-  # - script: java -jar build\libs\YourJarFile.jar
-  #   displayName: 'Run the App'
+- script: |
+    echo "Building the project..."
+    javac HelloWorld.java
+    java HelloWorld
+  displayName: 'Build and Run Java Program'
