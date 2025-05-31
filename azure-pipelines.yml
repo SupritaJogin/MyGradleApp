@@ -2,15 +2,12 @@ trigger:
 - main
 
 pool:
-  name: Default
+  name: Default  # Use your self-hosted agent pool name if you're using your own agent
 
 steps:
 - checkout: self
 
-- script: dir
-  displayName: 'List files in working directory'
-
-- script: echo "Running Gradle build"
+- script: echo Running Gradle build
   displayName: 'Echo Message'
 
 - script: .\gradlew.bat clean build
