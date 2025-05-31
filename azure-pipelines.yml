@@ -2,12 +2,12 @@ trigger:
 - main
 
 pool:
-  name: Default  # Your self-hosted agent name
+  name: Default   # Or use vmImage: 'ubuntu-latest' if Microsoft-hosted
 
 steps:
 - task: Gradle@2
   inputs:
-    workingDirectory: ''         # Root of the repo; change if your gradlew is in a subfolder
-    gradleWrapperFile: 'gradlew' # Make sure 'gradlew' file is present at repo root
+    workingDirectory: ''
+    gradleWrapperFile: ''        # Leave empty to use installed Gradle
     gradleOptions: '-Xmx1024m'
-    tasks: 'build'               # You can add more tasks if needed, e.g., 'clean build test'
+    tasks: 'build'
