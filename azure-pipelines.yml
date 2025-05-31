@@ -1,15 +1,14 @@
 trigger:
-- master
+- main
 
 pool:
-  name: Default
+  vmImage: 'windows-latest'
 
 steps:
+- task: Checkout@1
+
 - script: echo Running Gradle build
-  displayName: 'Run a one-line script'
+  displayName: 'Run echo'
 
-- script: gradlew clean build
+- script: gradlew.bat clean build
   displayName: 'Build with Gradle'
-
-- script: java -jar build/libs/yourappname.jar
-  displayName: 'Run the JAR file'
