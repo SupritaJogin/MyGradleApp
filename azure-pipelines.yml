@@ -1,5 +1,5 @@
 trigger:
-- main  # Adjust if your branch is named differently
+- main
 
 pool:
   name: 'Azure Pipelines'
@@ -7,13 +7,13 @@ pool:
     - agent.name -equals Hosted Agent
 
 steps:
-- task: UseJava@1
-  inputs:
-    versionSpec: '17'
-    jdkArchitecture: 'x64'
-
 - script: |
-    echo "Building the project..."
+    echo "Java version:"
+    java -version
+    echo "Javac version:"
+    javac -version
+    echo "Compiling HelloWorld.java..."
     javac HelloWorld.java
+    echo "Running HelloWorld..."
     java HelloWorld
-  displayName: 'Build and Run Java Program'
+  displayName: 'Compile and Run Java Program'
