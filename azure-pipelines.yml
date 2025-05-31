@@ -1,16 +1,14 @@
 trigger:
-  - main
+- main
 
 pool:
-  vmImage: 'windows-latest'
+  name: Default  # This must match the pool name where your agent is added
 
 steps:
-  - checkout: self
+- checkout: self
 
-  - script: |
-      echo Running Gradle build
-    displayName: 'Run echo'
+- script: echo Running Gradle build
+  displayName: 'Echo Message'
 
-  - script: |
-      ./gradlew clean build
-    displayName: 'Build with Gradle'
+- script: gradlew.bat clean build
+  displayName: 'Build with Gradle'
