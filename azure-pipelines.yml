@@ -2,12 +2,12 @@ trigger:
 - main
 
 pool:
-  name: Default  # Using your self-hosted agent
+  name: Default  # Your self-hosted agent name
 
 steps:
 - task: Gradle@2
   inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
+    workingDirectory: ''         # Root of the repo; change if your gradlew is in a subfolder
+    gradleWrapperFile: 'gradlew' # Make sure 'gradlew' file is present at repo root
     gradleOptions: '-Xmx1024m'
-    tasks: 'build'
+    tasks: 'build'               # You can add more tasks if needed, e.g., 'clean build test'
