@@ -1,5 +1,2 @@
-<<<<<<< HEAD
-rootProject.name = 'MyApp'
-=======
 rootProject.name = 'MyGradleApp'
->>>>>>> a2ccf4e (Initial Gradle project commit)
+
