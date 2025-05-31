@@ -1,0 +1,14 @@
+trigger:
+- main
+
+pool:
+  name: 'Default'
+
+steps:
+- checkout: self
+
+- script: echo Running Gradle build
+  displayName: 'Run echo'
+
+- script: gradlew.bat clean build
+  displayName: 'Build with Gradle'
