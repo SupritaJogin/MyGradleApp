@@ -5,10 +5,11 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: Checkout@1
+- checkout: self  # Correct way to checkout code
 
 - script: echo Running Gradle build
   displayName: 'Run echo'
 
 - script: gradlew.bat clean build
   displayName: 'Build with Gradle'
+  workingDirectory: $(Build.SourcesDirectory)  # Ensures it runs from repo root
