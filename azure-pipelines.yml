@@ -5,9 +5,9 @@ pool:
   name: Default  # Using your self-hosted agent
 
 steps:
-- script: |
-    echo "Compiling Java file..."
-    javac HelloWorld.java
-    echo "Running Java program..."
-    java HelloWorld
-  displayName: 'Compile and Run Java Program'
+- task: Gradle@2
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx1024m'
+    tasks: 'build'
